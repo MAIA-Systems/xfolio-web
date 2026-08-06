@@ -44,7 +44,7 @@ export function LogoMark({ size = 28, className = "" }: { size?: number; classNa
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <LogoMark size={26} />
+      <LogoMark size={38} />
       <span className="font-display text-[17px] font-bold tracking-tight">FolioX</span>
     </div>
   );

@@ -39,7 +39,7 @@ function NavLink({
       }`}
       data-testid={`link-nav-${label.toLowerCase()}`}
     >
-      <Icon className="h-4 w-4" />
+      <Icon className="h-6 w-6" />
       <span>{label}</span>
     </Link>
   );
