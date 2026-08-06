@@ -11,21 +11,43 @@ real money. All state lives in React memory and resets on page reload.
 
 ## Table of contents
 
-- [What this project is](#what-this-project-is)
-- [Origin: reconstructed from a compiled bundle](#origin-reconstructed-from-a-compiled-bundle)
-- [Tech stack](#tech-stack)
-- [Getting started](#getting-started)
-- [Project structure](#project-structure)
-- [Routes](#routes)
-- [Domain model](#domain-model)
-- [The market store](#the-market-store)
-- [Deterministic generators](#deterministic-generators)
-- [Design system](#design-system)
-- [Server vs client components](#server-vs-client-components)
-- [Conventions](#conventions)
-- [Testing and verification](#testing-and-verification)
-- [Known quirks and inherited behaviour](#known-quirks-and-inherited-behaviour)
-- [Where to make common changes](#where-to-make-common-changes)
+- [FolioX](#foliox)
+  - [Table of contents](#table-of-contents)
+  - [What this project is](#what-this-project-is)
+  - [Origin: reconstructed from a compiled bundle](#origin-reconstructed-from-a-compiled-bundle)
+  - [Architecture](#architecture)
+    - [AWS architecture overview](#aws-architecture-overview)
+    - [Order placement flow](#order-placement-flow)
+  - [Tech stack](#tech-stack)
+  - [Getting started](#getting-started)
+  - [Project structure](#project-structure)
+    - [Why `app/` is thin and `components/pages/` exists](#why-app-is-thin-and-componentspages-exists)
+  - [Routes](#routes)
+  - [Domain model](#domain-model)
+    - [`Creator`](#creator)
+    - [`Asset`](#asset)
+    - [Asset distribution](#asset-distribution)
+    - [Derived values (never stored)](#derived-values-never-stored)
+  - [The market store](#the-market-store)
+    - [State](#state)
+    - [Actions](#actions)
+    - [Live price simulation](#live-price-simulation)
+    - [Fee handling](#fee-handling)
+  - [Deterministic generators](#deterministic-generators)
+  - [Design system](#design-system)
+    - [Palette](#palette)
+    - [Radius scale](#radius-scale)
+    - [Custom classes](#custom-classes)
+    - [Typography](#typography)
+    - [Charts](#charts)
+  - [Server vs client components](#server-vs-client-components)
+  - [Conventions](#conventions)
+  - [Testing and verification](#testing-and-verification)
+  - [Known quirks and inherited behaviour](#known-quirks-and-inherited-behaviour)
+    - [Deliberate departures from the original](#deliberate-departures-from-the-original)
+  - [Where to make common changes](#where-to-make-common-changes)
+    - [Adding a new route](#adding-a-new-route)
+  - [Disclaimer](#disclaimer)
 
 ---
 
@@ -75,6 +97,18 @@ cd _reference && python3 -m http.server 3101   # original SPA on :3101 (hash rou
 ```
 
 Delete `_reference/` once you no longer need the comparison.
+
+---
+
+## Architecture
+
+### AWS architecture overview
+
+![FolioX AWS architecture overview](docs/images/folio_x_aws_architecture_overview.png)
+
+### Order placement flow
+
+![FolioX order placement flow](docs/images/folio_x_order_placement_flow.png)
 
 ---
 
